@@ -47,5 +47,25 @@ describe('.client') do
     end
   end
 
+  describe('#update') do
+    it('lets you update clients in the database') do
+      client = Client.new({:name => "Caroline", :id => nil, :stylist_id => 4})
+      client.save()
+      client.update({:name => "Caroline Quiggle"})
+      expect(client.name()).to(eq("Caroline Quiggle"))
+    end
+  end
+
+  it('deletes a client from the database') do
+    stylist = Stylist.new({:name => "Caroline", :id => nil})
+    stylist.save()
+    client = Client.new({:name => "Mary Sue", :stylist_id => stylist.id(), :id => 1})
+    client.save()
+    client2 = Client.new({:name => "Bobby Joe", :stylist_id=> stylist.id(), :id => 2})
+    client2.save()
+    client.delete()
+    expect(Client.all()).to(eq([client2]))
+  end
+
 
 end

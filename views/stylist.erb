@@ -10,15 +10,15 @@
 </form>
 
 <% if @stylist.clients().any?() %>
-<h3>Here are this hair stylist's clients:</h3>
+    <h3>Here are this hair stylist's clients:</h3>
 
-<ul>
-  <% @stylist.clients().each() do |client| %>
-  <li><%= client.name() %></li>
-  <% end %>
-</ul>
-<% else %>
-<p>This stylist has no clients yet!</p>
+    <ul>
+    <% @stylist.clients().each() do |client| %>
+      <li><%= client.name() %></li>
+      <% end %>
+    </ul>
+    <% else %>
+      <p>This stylist has no clients yet!</p>
 <% end %>
 
 <p><a href="/stylist/<%= @stylist.id() %>/edit">Edit <%= @stylist.name() %> stylist</a></p>

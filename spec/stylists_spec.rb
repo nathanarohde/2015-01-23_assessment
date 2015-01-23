@@ -82,7 +82,7 @@ describe('.stylist') do
       expect(Stylist.all()).to(eq([stylist2]))
     end
 
-    it('deletes a stylist clients from the database') do
+    it('deletes a stylists clients from the database') do
       stylist = Stylist.new({:name => "Caroline", :id => nil})
       stylist.save()
       client = Client.new({:name => "Mary Sue", :stylist_id => stylist.id()})
