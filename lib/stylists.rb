@@ -17,7 +17,8 @@ class Stylist
     stored_stylists.each() do |stylist|
       name = stylist['name']
       id = stylist['id'].to_i
-      stylists.push(Stylist.new({:name => name, :id => id}))
+      stylist_id = stylist['stylist_id'].to_i
+      stylists.push(Stylist.new({:name => name, :stylist_id => stylist_id, :id => id}))
     end
     stylists
   end

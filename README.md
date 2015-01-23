@@ -19,4 +19,4 @@ $ psql
 #CREATE DATABASE hair_salon;
 #\c hair_salon
 #CREATE TABLE stylists(name varchar, id serial PRIMARY KEY);
-#CREATE TABLE clients(name varchar, id serial PRIMARY KEY);
+#CREATE TABLE clients(name varchar, stylist_id int, id serial PRIMARY KEY);
