@@ -21,4 +21,5 @@
 <p>This stylist has no clients yet!</p>
 <% end %>
 
-<a href='/'>Return to Main Page</a>
+<p><a href="/stylist/<%= @stylist.id() %>/edit">Edit <%= @stylist.name() %> stylist</a></p>
+<p><a href='/'>Return to Main Page</a></p>

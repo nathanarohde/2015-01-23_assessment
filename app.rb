@@ -33,3 +33,15 @@ get('/stylist/:id') do
   @stylist = Stylist.find(params['id'].to_i())
   erb(:stylist)
 end
+
+get('/stylist/:id/edit') do
+  @stylist = Stylist.find(params['id'].to_i())
+  erb(:stylist_edit)
+end
+
+patch('/stylist/:id') do
+  name = params['name']
+  @stylist = Stylist.find(params['id'].to_i())
+  @stylist.update({:name => name})
+  erb(:stylist)
+end
