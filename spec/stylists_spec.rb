@@ -39,5 +39,28 @@ describe('.stylist') do
     end
   end
 
+  describe('find') do
+    it('finds a stylist using an id number') do
+      stylist1 = Stylist.new({:name => "Caroline", :id => nil})
+      stylist1.save()
+      stylist2 = Stylist.new({:name => "Dude", :id => nil})
+      stylist2.save()
+      expect(Stylist.find(stylist1.id())).to(eq(stylist1))
+    end
+  end
+
+  describe('#clients') do
+    it('returns an array of clients for a stylist') do
+      stylist1 = Stylist.new({:name => "Caroline", :id => nil})
+      stylist1.save()
+      client1= Client.new({:name => "Sarah", :id => nil, :stylist_id => stylist1.id()})
+      client1.save()
+      client2= Client.new({:name => "Bob", :id => nil, :stylist_id => stylist1.id()})
+      client2.save()
+      client3= Client.new({:name => "Jim", :id => nil, :stylist_id => 999})
+      client3.save()
+      expect(stylist1.clients()).to(eq([client1, client2]))
+    end
+  end
 
 end
