@@ -17,7 +17,27 @@ describe('.stylist') do
     end
   end
 
-  # describe("#save") do
-  #   it('allows')
+  describe('#all') do
+    it('starts off with no stylist') do
+      expect(Stylist.all()).to(eq([]))
+    end
+  end
+
+  describe("#save") do
+    it('allows sylists to be saved to the sylists table') do
+      stylist = Stylist.new({:name => "Caroline", :id => nil})
+      stylist.save()
+      expect(Stylist.all()).to(eq([stylist]))
+    end
+  end
+
+  describe("#==") do
+    it('is the same stylist if the name is the same') do
+      stylist1 = Stylist.new({:name => "Caroline", :id => nil})
+      stylist2 = Stylist.new({:name => "Caroline", :id => nil})
+      expect(stylist1).to(eq(stylist2))
+    end
+  end
+
 
 end
