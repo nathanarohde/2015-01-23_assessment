@@ -52,3 +52,22 @@ delete('/stylist/:id') do
   @stylists = Stylist.all()
   erb(:index)
 end
+
+get('/client/:id') do
+  @client = Client.find(params['id'].to_i())
+  erb(:client)
+end
+
+patch('/client/:id') do
+  name = params['client_name']
+  @client = Client.find(params['id'].to_i())
+  @client.update({:name => name})
+  erb(:client)
+end
+
+delete('/client/:id') do
+  @client = Client.find(params['id'].to_i())
+  @client.delete()
+  @stylists = Stylist.all()
+  erb(:index)
+end

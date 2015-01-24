@@ -14,8 +14,8 @@
 
     <ul>
     <% @stylist.clients().each() do |client| %>
-      <li><%= client.name() %></li>
-      <% end %>
+      <li><a href="/client/<%= client.id() %>"><%=client.name()%> </a></li>
+    <% end %>
     </ul>
     <% else %>
       <p>This stylist has no clients yet!</p>

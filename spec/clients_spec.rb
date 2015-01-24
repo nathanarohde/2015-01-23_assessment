@@ -56,16 +56,27 @@ describe('.client') do
     end
   end
 
-  it('deletes a client from the database') do
-    stylist = Stylist.new({:name => "Caroline", :id => nil})
-    stylist.save()
-    client = Client.new({:name => "Mary Sue", :stylist_id => stylist.id(), :id => 1})
-    client.save()
-    client2 = Client.new({:name => "Bobby Joe", :stylist_id=> stylist.id(), :id => 2})
-    client2.save()
-    client.delete()
-    expect(Client.all()).to(eq([client2]))
+  describe('#delete') do
+    it('deletes a client from the database') do
+      stylist = Stylist.new({:name => "Caroline", :id => nil})
+      stylist.save()
+      client = Client.new({:name => "Mary Sue", :stylist_id => stylist.id(), :id => 1})
+      client.save()
+      client2 = Client.new({:name => "Bobby Joe", :stylist_id=> stylist.id(), :id => 2})
+      client2.save()
+      client.delete()
+      expect(Client.all()).to(eq([client2]))
+    end
   end
 
+  describe('find') do
+    it('finds a stylist using an id number') do
+      client = Client.new({:name => "Mary Sue", :stylist_id => 1, :id => 1})
+      client.save()
+      client2 = Client.new({:name => "Bobby Joe", :stylist_id=> 1, :id => 2})
+      client2.save()
+      expect(Client.find(client.id())).to(eq(client))
+    end
+  end
 
 end

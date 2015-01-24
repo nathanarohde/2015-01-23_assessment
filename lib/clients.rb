@@ -28,6 +28,15 @@ class Client
     self.name().==(another_client.name()).&self.id().==(another_client.id())
   end
 
+  define_singleton_method(:find) do |id|
+    Client.all().each() do |client|
+      if client.id().== (id)
+        @found_client=client
+      end
+    end
+    @found_client
+  end
+
   define_method(:update) do |attributes|
     @name = attributes[:name]
     @id = self.id()

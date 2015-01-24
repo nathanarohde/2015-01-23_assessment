@@ -1,0 +1,18 @@
+<h1>Update client page for <%=@client.name() %> </h1>
+
+<form action='/client/<%= @client.id() %>' method='post'>
+  <input name='_method' type='hidden' value = 'patch'>
+
+  <label for='client_name'>Edit client name:</label>
+  <input id='client_name' name='client_name' type='text'>
+
+  <button type='submit'>Update</button>
+</form>
+
+<form action='/client/<%= @client.id() %>' method='post'>
+  <input name="_method" type='hidden' value = 'delete'>
+
+  <button type='submit'>Delete Client</button>
+</form>
+
+<p><a href='/'>Return to Main Page</a></p>
