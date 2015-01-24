@@ -43,3 +43,7 @@ $ psql
 #\c hair_salon
 #CREATE TABLE stylists(name varchar, id serial PRIMARY KEY);
 #CREATE TABLE clients(name varchar, stylist_id int, id serial PRIMARY KEY);
+
+Copyright 2015 Nathan Rohde
+
+License: GPL v2 Created by Nathan Rohde
